@@ -1,0 +1,68 @@
+import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.JOptionPane;
+public class LabApplet6 extends Applet implements ItemListener, ActionListener {
+    TextField input, output;
+    Label lbl1;
+    Button btnConvertAll;
+    Choice convert =  new Choice();
+    
+    public void init() {
+        
+        add(lbl1 = new Label("Input number to convert(base10) "));
+        add(input = new TextField(10));
+        add(convert);
+        convert.addItem("Select Conversion...");
+        convert.addItem("Binary");
+        convert.addItem("Octal");
+        convert.addItem("Decimal");
+        convert.addItem("Hexadecimal");
+        add(btnConvertAll = new Button("Convert All"));
+        add(output = new TextField(10));
+        output.setEditable(false);
+        
+        
+        btnConvertAll.addActionListener(this);
+        convert.addItemListener(this);
+    }
+    public void actionPerformed(ActionEvent e){
+        int inputDec;
+        try {
+        if (e.getSource() == btnConvertAll) {
+            inputDec = Integer.parseInt(input.getText());
+            String bin = Integer.toBinaryString(inputDec);
+            String octal = Integer.toOctalString(inputDec);
+            String dec = input.getText();
+            input.setText(dec);
+            String hex = Integer.toHexString(inputDec);
+            JOptionPane.showMessageDialog(null, "Binary     :" + bin + "\n" + "Octal    :" + octal + "\n" + "Decimal    :" + dec + "\n" + "Hexadecimal  :" + hex);
+            }
+        }
+    }
+     public void itemStateChanged(ItemEvent e){
+        int c = convert.getSelectedIndex();
+         int inputDec;
+         inputDec = Integer.parseInt(input.getText());
+         switch(c){
+             case 1:
+                 String bin = Integer.toBinaryString(inputDec);
+                 output.setText(bin);
+                 break;
+             case 2: 
+                 String octal = Integer.toOctalString(inputDec);
+                 output.setText(octal);
+                 break;
+             case 3:
+                 String dec = new Integer(inputDec).toString();
+                 output.setText(dec);
+                 break;
+             case 4: 
+                 String hex = Integer.toHexString(inputDec);
+                 output.setText(hex);
+                 break;
+         }
+     }
+    }
+}

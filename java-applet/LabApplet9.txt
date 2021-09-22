@@ -1,0 +1,191 @@
+private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        int x = jComboBox1.getSelectedIndex();
+        switch (x) {
+            case 0:
+                jTextField1.setText(""); break;
+            case 1:
+                jTextField1.setText(""); break;
+            case 2:
+                jTextField1.setText(""); break;
+            case 3:
+                jTextField1.setText(""); break;
+        }
+    }     
+
+
+
+private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        String dec_input = jTextField1.getText();
+        String bin_input = jTextField1.getText();
+        String octal_input = jTextField1.getText();
+        String hex_input = jTextField1.getText();
+        int bin, oct, dec, hex;
+        String stringBin, stringOct, stringDec, stringHex;
+            int x = jComboBox2.getSelectedIndex();// 1 bin, 2 oct, 3 dec, 4 hex
+            int y = jComboBox1.getSelectedIndex(); // 0 bin, 1 oct, 2 dec, 3 hex
+            switch (x){
+                case 0:
+                    break;
+                case 1:
+                    switch (y){
+                        case 0:
+                           bin = Integer.parseInt(bin_input, 2);
+                           stringBin = Integer.toBinaryString(bin); 
+                           JOptionPane.showMessageDialog(null, stringBin);break;
+                        case 1:
+                           oct = Integer.parseInt(octal_input, 8);
+                           stringOct = Integer.toBinaryString(oct);
+                           JOptionPane.showMessageDialog(null, stringOct);break;
+                        case 2:
+                           dec = Integer.parseInt(dec_input);
+                           stringDec = Integer.toBinaryString(dec); 
+                           JOptionPane.showMessageDialog(null, stringDec);break;
+                        case 3:
+                           hex = Integer.parseInt(hex_input, 16);
+                           stringHex = Integer.toBinaryString(hex); 
+                           JOptionPane.showMessageDialog(null, stringHex);break;     
+                    }
+                    break;
+                case 2:
+                    switch (y) {
+                        case 0:
+                           bin = Integer.parseInt(bin_input, 2);
+                           stringBin = Integer.toOctalString(bin); 
+                           JOptionPane.showMessageDialog(null, stringBin);break;
+                        case 1:
+                           oct = Integer.parseInt(octal_input, 8);
+                           stringOct = Integer.toOctalString(oct);
+                           JOptionPane.showMessageDialog(null, stringOct);break;
+                        case 2:
+                           dec = Integer.parseInt(dec_input);
+                           stringDec = Integer.toOctalString(dec); 
+                           JOptionPane.showMessageDialog(null, stringDec);break;
+                        case 3:
+                           hex = Integer.parseInt(hex_input, 16);
+                           stringHex = Integer.toOctalString(hex); 
+                           JOptionPane.showMessageDialog(null, stringHex);break;  
+                    }
+                    break;
+                case 3:
+                    switch (y) {
+                        case 0:
+                           bin = Integer.parseInt(bin_input, 2); 
+                           JOptionPane.showMessageDialog(null, bin);break;
+                        case 1:
+                           oct = Integer.parseInt(octal_input, 8);
+                           JOptionPane.showMessageDialog(null, oct);break;
+                        case 2:
+                           JOptionPane.showMessageDialog(null, dec_input);break;
+                        case 3:
+                           hex = Integer.parseInt(hex_input, 16);
+                           JOptionPane.showMessageDialog(null, hex);break;  
+                    }
+                    break;
+                case 4:
+                    switch (y) {
+                        case 0:
+                           bin = Integer.parseInt(bin_input, 2);
+                           stringBin = Integer.toHexString(bin); 
+                           JOptionPane.showMessageDialog(null, stringBin);break;
+                        case 1:
+                           oct = Integer.parseInt(octal_input, 8);
+                           stringOct = Integer.toHexString(oct);
+                           JOptionPane.showMessageDialog(null, stringOct);break;
+                        case 2:
+                           dec = Integer.parseInt(dec_input);
+                           stringDec = Integer.toHexString(dec); 
+                           JOptionPane.showMessageDialog(null, stringDec);break;
+                        case 3:
+                           hex = Integer.parseInt(hex_input, 16);
+                           stringHex = Integer.toHexString(hex); 
+                           JOptionPane.showMessageDialog(null, stringHex);break;  
+                    }
+                    break;
+            }       
+    }         
+
+
+private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {                                     
+        
+        
+        String y;
+        int x = jComboBox1.getSelectedIndex();
+        switch (x) {
+            case 0:
+                char bin = evt.getKeyChar();
+                if (!(bin >='0' && bin<='1') || (bin == KeyEvent.VK_BACK_SPACE))
+                    evt.consume();
+                break;
+            case 1:
+                char octal = evt.getKeyChar();
+                if (!(Character.isDigit(octal)) || (octal == KeyEvent.VK_BACK_SPACE))
+                    evt.consume();
+                break;
+            case 2:
+                char dec = evt.getKeyChar();
+                if (!(Character.isDigit(dec)) || (dec == KeyEvent.VK_BACK_SPACE))
+                    evt.consume();
+                break;
+            case 3:
+                char hex = evt.getKeyChar();
+                if (!((Character.isDigit(hex)) || (Character.isAlphabetic(hex))) || (hex == KeyEvent.VK_BACK_SPACE))
+                    evt.consume();
+                break;
+            } 
+        
+    }  
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String dec_input = jTextField1.getText();
+        String bin_input = jTextField1.getText();
+        String octal_input = jTextField1.getText();
+        String hex_input = jTextField1.getText();
+        int bin, oct, dec, hex;
+        int bin2, oct2, dec2, hex2;
+        int bin3, oct3, dec3, hex3;
+        int bin4, oct4, dec4, hex4;
+        String stringBin, stringOct, stringDec, stringHex;
+        String stringBin2, stringOct2, stringDec2, stringHex2;
+        String stringBin3, stringOct3, stringDec3, stringHex3;
+        String stringBin4, stringOct4, stringDec4, stringHex4;
+
+         int x = jComboBox1.getSelectedIndex(); // 0 bin, 1 oct, 2 dec, 3 hex
+         switch(x) {
+             case 0:
+                 bin = Integer.parseInt(bin_input, 2);
+                           stringBin = Integer.toBinaryString(bin); 
+                           stringBin2 = Integer.toOctalString(bin);
+                           stringBin3 = Integer.toHexString(bin);
+                           JOptionPane.showMessageDialog(null, "Binary: " + stringBin + 
+                                   "\n" + "Octal: " + stringBin2 + "\n" + "Decimal: " 
+                                   + bin + "\n" + "Hexadecimal: " + stringBin3);
+                           break;
+             case 1:
+                 oct = Integer.parseInt(octal_input, 8);
+                           stringOct2 = Integer.toOctalString(oct);
+                           stringOct = Integer.toBinaryString(oct);
+                           stringOct3 = Integer.toHexString(oct);
+                           JOptionPane.showMessageDialog(null, "Binary: " + stringOct + 
+                                   "\n" + "Octal: " + stringOct2 + "\n" + "Decimal: " 
+                                   + oct + "\n" + "Hexadecimal: " + stringOct3);
+                           break;
+             case 2:
+                 dec = Integer.parseInt(dec_input);
+                           stringDec = Integer.toBinaryString(dec);
+                           stringDec2 = Integer.toOctalString(dec);
+                           stringDec3 = Integer.toHexString(dec); 
+                            JOptionPane.showMessageDialog(null, "Binary: " + stringDec + 
+                                   "\n" + "Octal: " + stringDec2 + "\n" + "Decimal: " 
+                                   + dec_input + "\n" + "Hexadecimal: " + stringDec3);
+                           break;
+             case 3:
+                 hex = Integer.parseInt(hex_input, 16);
+                           stringHex = Integer.toBinaryString(hex);
+                           stringHex2 = Integer.toOctalString(hex);
+                           stringHex3 = Integer.toHexString(hex);
+                           JOptionPane.showMessageDialog(null, "Binary: " + stringHex + 
+                                   "\n" + "Octal: " + stringHex2 + "\n" + "Decimal: " 
+                                   + hex + "\n" + "Hexadecimal: " + stringHex3);
+                           break;
+         }
+    }  
+

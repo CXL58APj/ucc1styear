@@ -1,0 +1,95 @@
+import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.JOptionPane;
+public class LabApplet8 extends Applet implements ActionListener {
+        CheckboxGroup workExp  = new CheckboxGroup();
+        Checkbox optnRookie = new Checkbox("Rookie" , workExp, false);
+        Checkbox optnSecondYear = new Checkbox("Second Year" , workExp, false);
+        Checkbox optnVeteran = new Checkbox("Veteran" , workExp, false);
+        Checkbox hide = new Checkbox("hide" , workExp, false);
+        Label hours = new Label("Hours: ");
+        Label stat = new Label("Status: ");
+        TextField input = new TextField(30);
+        Button btnPay = new Button("Pay");
+        Button btnClear = new Button("Clear");
+    
+    public void init() {
+       
+        
+        add(hours);
+        add(input);
+        add(stat);
+        add(optnRookie);
+        add(optnSecondYear);
+        add(optnVeteran);
+        add(btnPay);
+        add(btnClear);
+        
+        
+        btnPay.addActionListener(this);
+        btnClear.addActionListener(this);
+    }
+    public void actionPerformed(ActionEvent e){
+        int hoursInput;
+        double payRateRookie = 100, payRateSecondYear = 120, payRateVeteran = 150, overTime = 0, regularPay = 0, totalPay = 0;
+        try {
+        hoursInput = Integer.parseInt(input.getText());
+        
+        if(e.getSource() == btnPay){
+              if(workExp.getSelectedCheckbox() == optnRookie) {
+                  if (hoursInput >=41){
+                      regularPay = 40 * payRateRookie;
+                      hoursInput = hoursInput - 40;
+                      overTime = (1.5 * hoursInput)*payRateRookie;
+                      totalPay = regularPay + overTime;
+                      JOptionPane.showMessageDialog(null,"Pay Rate  :" + payRateRookie + "\n" + "Regular Pay    :" + regularPay + "\n" + "Overtime Pay  :" + overTime +"\n" + "Total Pay  :" + totalPay);
+                  }
+                  else{
+                     regularPay = hoursInput * payRateRookie;
+                      overTime = 0;
+                      totalPay = regularPay + overTime; 
+                      JOptionPane.showMessageDialog(null,"Pay Rate  :" + payRateRookie + "\n" + "Regular Pay    :" + regularPay + "\n" + "Overtime Pay  :" + overTime +"\n" + "Total Pay  :" + totalPay);
+                  }
+              }else if(workExp.getSelectedCheckbox() == optnSecondYear){
+                  if (hoursInput >=41){
+                      regularPay = 40 * payRateSecondYear;
+                      hoursInput = hoursInput - 40;
+                      overTime = (1.5 * hoursInput)*payRateSecondYear;
+                      totalPay = regularPay + overTime;
+                      JOptionPane.showMessageDialog(null,"Pay Rate  :" + payRateSecondYear + "\n" + "Regular Pay    :" + regularPay + "\n" + "Overtime Pay  :" + overTime +"\n" + "Total Pay  :" + totalPay);
+                  }
+                  else{
+                     regularPay = hoursInput * payRateSecondYear;
+                      overTime = 0;
+                      totalPay = regularPay + overTime; 
+                      JOptionPane.showMessageDialog(null,"Pay Rate  :" + payRateSecondYear + "\n" + "Regular Pay    :" + regularPay + "\n" + "Overtime Pay  :" + overTime +"\n" + "Total Pay  :" + totalPay);
+                  }
+              }else if(workExp.getSelectedCheckbox() == optnVeteran){
+                  if (hoursInput >=41){
+                      regularPay = 40 * payRateVeteran;
+                      hoursInput = hoursInput - 40;
+                      overTime = (1.5 * hoursInput)*payRateVeteran;
+                      totalPay = regularPay + overTime;
+                      JOptionPane.showMessageDialog(null,"Pay Rate  :" + payRateVeteran + "\n" + "Regular Pay    :" + regularPay + "\n" + "Overtime Pay  :" + overTime +"\n" + "Total Pay  :" + totalPay);
+                  }
+                  else{
+                     regularPay = hoursInput * payRateVeteran;
+                      overTime = 0;
+                      totalPay = regularPay + overTime; 
+                      JOptionPane.showMessageDialog(null,"Pay Rate  :" + payRateVeteran + "\n" + "Regular Pay    :" + regularPay + "\n" + "Overtime Pay  :" + overTime +"\n" + "Total Pay  :" + totalPay);
+                  }
+              }
+              
+          }else if (e.getSource() == btnClear){
+            Checkbox hide = new Checkbox("hide" , workExp, true);
+            add(hide);
+            input.setText(null);
+            
+        }   
+        }catch (Exception x) {
+            JOptionPane.showMessageDialog(null,"Invalid Input");
+        }
+    }
+}

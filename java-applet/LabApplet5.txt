@@ -1,0 +1,63 @@
+import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+
+public class LabApplet5 extends Applet implements ActionListener {
+    Label lbl1, fColorlbl, bColorlbl;
+    TextField inputField;
+    Button btnF1,btnF2,btnF3,btnF4,btnF5,btnB1,btnB2,btnB3,btnB4,btnB5;
+    
+    public void init() {
+            add(lbl1 = new Label("Type your text here: "));
+            add(inputField = new TextField (15));
+            add(fColorlbl = new Label ("                                             Choose ForeColor                                             "));
+            add(btnF1 = new Button(" RED "));
+            add(btnF2 = new Button(" BROWN "));
+            add(btnF3 = new Button(" GREEN "));
+            add(btnF4 = new Button(" YELLOW "));
+            add(btnF5 = new Button(" BLACK "));
+            add(bColorlbl = new Label("                                             Choose BackgroundColor                                             "));
+            add(btnB1 = new Button(" RED "));
+            add(btnB2 = new Button(" BROWN "));
+            add(btnB3 = new Button(" GREEN "));
+            add(btnB4 = new Button(" YELLOW "));
+            add(btnB5 = new Button(" BLACK "));
+       
+         btnF1.addActionListener(this);
+         btnF2.addActionListener(this);
+         btnF3.addActionListener(this);
+         btnF4.addActionListener(this);
+         btnF5.addActionListener(this);
+         btnB1.addActionListener(this);
+         btnB2.addActionListener(this);
+         btnB3.addActionListener(this);
+         btnB4.addActionListener(this);
+         btnB5.addActionListener(this);
+    }
+    
+        public void actionPerformed(ActionEvent e){
+       if (e.getSource() == btnF1) {
+           inputField.setForeground(Color.red);
+        }else if (e.getSource() == btnF2) {
+           Color brown = new Color (166, 123, 91, 1);
+           inputField.setForeground(brown);
+        }else if (e.getSource() == btnF3) {
+           inputField.setForeground(Color.green);
+        }else if (e.getSource() == btnF4) {
+           inputField.setForeground(Color.yellow);
+        }else if (e.getSource() == btnF5) {
+           inputField.setForeground(Color.black);
+        }else if (e.getSource() == btnB1) {
+           inputField.setBackground(Color.red);
+        }else if (e.getSource() == btnB2) {
+           Color brown = new Color (166, 123, 91, 1);
+           inputField.setBackground(brown);
+        }else if (e.getSource() == btnB3) {
+           inputField.setBackground(Color.green);
+        }else if (e.getSource() == btnB4) {
+           inputField.setBackground(Color.yellow);
+        }else if (e.getSource() == btnB5) {
+           inputField.setBackground(Color.black);
+        }
+    }
+}

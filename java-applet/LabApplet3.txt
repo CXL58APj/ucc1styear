@@ -1,0 +1,72 @@
+import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+import java.awt.Font;
+public class LabApplet3 extends Applet implements ActionListener{
+    TextField Lname, Fname, Mname, cYear, perUnit, totalUnit, tuitionFee;
+    Button Compute, Clear;
+    Label lnamelbl, fnamelbl, mnamelbl, cylbl, unitlbl, totallbl, tuitionlbl;
+    
+    
+    public void init() {
+        Label title = new Label("STUDENT'S PRE-ASSESSMENT");
+        Font myFont = new Font("Calibri",Font.BOLD, 40);
+        add(title);
+        title.setFont(myFont);
+        add(lnamelbl = new Label("Lastname: "));
+        add(Lname = new TextField("", 15));
+        
+        add(fnamelbl = new Label("Firstname: "));
+        add(Fname = new TextField("", 15));
+        
+        add(mnamelbl = new Label("MI: "));
+        add(Mname = new TextField("", 5));
+        
+        add(cylbl = new Label("Course/Year: "));
+        add(cYear = new TextField("", 6));
+        
+        add(unitlbl = new Label("Amount Per Unit: "));
+        add(perUnit = new TextField("300.00", 10));
+        perUnit.setEnabled(false);
+        
+        add(totallbl = new Label("Total Units: "));
+        add(totalUnit = new TextField("", 10));
+        
+        add(tuitionlbl = new Label("Tuition Fee: "));
+        add(tuitionFee = new TextField("", 10));
+        tuitionFee.setEditable(false);
+        
+        add(Compute = new Button( "Compute"));
+        add(Clear = new Button("Clear"));
+        
+      Compute.addActionListener(this);
+      Clear.addActionListener(this);
+
+    }
+    public void actionPerformed(ActionEvent e){
+        double x, y, total;
+        String lname,fname,mname,cy,per,total1;
+        
+            
+        if (e.getSource() == Compute) {
+            x = Double.parseDouble(perUnit.getText());
+            y = Double.parseDouble(totalUnit.getText());
+            total = x * y;
+            String total_fee = new Integer((int) total).toString();
+            tuitionFee.setText(total_fee);
+        }else if(e.getSource() == Clear){
+            lname = Lname.getText();
+            fname = Fname.getText();
+            mname = Mname.getText();
+            cy = cYear.getText();
+            total1 = totalUnit.getText();
+            
+             Fname.setText(null);
+             Mname.setText(null);
+             Lname.setText(null);
+             cYear.setText(null);
+             totalUnit.setText(null);
+             tuitionFee.setText(null);
+        }
+    }
+}

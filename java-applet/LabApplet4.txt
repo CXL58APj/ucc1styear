@@ -1,0 +1,119 @@
+import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+
+public class LabApplet4 extends Applet implements ActionListener {
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btnCompute;
+    Label seatLbl, priceLbl, amtLbl;
+    TextField seatField, priceField, amtField;
+    
+    public void init() {
+        
+        add(btn1 = new Button("        1        "));
+        add(btn2 = new Button("        2        "));
+        add(btn3 = new Button("        3       "));
+        add(btn4 = new Button("        4        "));
+        add(btn5 = new Button("        5        "));
+        add(btn6 = new Button("        6        "));
+        add(btn7 = new Button("        7        "));
+        add(btn8 = new Button("        8        "));
+        add(btn9 = new Button("        9        "));
+        add(btn10 = new Button("        10        "));       
+
+        add(seatLbl = new Label("No. of Seat: "));
+        add(seatField = new TextField("0",2));
+        seatField.setEditable(false);
+        
+        add(priceLbl = new Label("Price: "));
+        add(priceField = new TextField("200.00",5));
+        priceField.setEnabled(false);
+        add(amtLbl = new Label("Amount: "));
+        add(amtField = new TextField("",5));
+        amtField.setEditable(false);
+        add(btnCompute = new Button("     Compute     "));
+        btn1.addActionListener(this);
+        btn2.addActionListener(this);
+        btn3.addActionListener(this);
+        btn4.addActionListener(this);
+        btn5.addActionListener(this);
+        btn6.addActionListener(this);
+        btn7.addActionListener(this);
+        btn8.addActionListener(this);
+        btn9.addActionListener(this);
+        btn10.addActionListener(this);
+        btnCompute.addActionListener(this);
+    }
+	
+    
+        public void actionPerformed(ActionEvent e){
+       int priceValue = 200;
+            int amt, seat;
+        if (e.getSource() == btn1) {
+            btn1.setEnabled(false);
+            btn1.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+           seatField.setText(total_seat);
+        }else if(e.getSource() == btn2){
+            btn2.setEnabled(false);
+            btn2.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn3){
+            btn3.setEnabled(false);
+            btn3.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn4){
+            btn4.setEnabled(false);
+            btn4.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn5){
+            btn5.setEnabled(false);
+            btn5.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn6){
+            btn6.setEnabled(false);
+            btn6.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn7){
+            btn7.setEnabled(false);
+            btn7.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn8){
+            btn8.setEnabled(false);
+            btn8.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn9){
+            btn9.setEnabled(false);
+            btn9.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btn10){
+            btn10.setEnabled(false);
+            btn10.setLabel("Reserved");
+            seat = Integer.parseInt(seatField.getText());
+            String total_seat = new Integer(++seat).toString();
+            seatField.setText(total_seat); 
+        }else if(e.getSource() == btnCompute){
+            seat = Integer.parseInt(seatField.getText());
+            amt = seat * priceValue;
+            String total_seat = new Integer(amt).toString();
+            amtField.setText(total_seat); 
+        }
+    }
+	
+}

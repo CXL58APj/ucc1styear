@@ -1,0 +1,36 @@
+import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+public class LabApplet1 extends Applet implements ActionListener{
+    TextField pass;
+    Label msg1;
+    Button btnOK;
+    Label msg2;
+    
+    public void init() {
+        add(msg1 = new Label("Input Password: "));
+        msg1.setBounds(10,10,10,10);
+        add(pass = new TextField(20));
+        pass.setBounds(20,20,20,20);
+        add(btnOK = new Button("OK"));
+        btnOK.setBounds(30,30,30,30);
+        add(msg2 = new Label(""));
+        pass.setBounds(40,40,40,40);
+        pass.setEchoChar('*');
+        
+        btnOK.addActionListener(this);
+    }
+    public void actionPerformed(ActionEvent e){
+       String password;
+        if (e.getSource() == btnOK) {
+            password= (pass.getText());
+           if ("string".equals(password)) {
+               msg2.setText("Access Granted!");
+              
+           }else {
+               msg2.setText("Access Denied!");
+                
+           }
+        }
+    }
+}
